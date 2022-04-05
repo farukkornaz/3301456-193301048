@@ -1,9 +1,7 @@
-
-
 class User{
-  String _name;
-  String _email;
-  String _password;
+  String? _name;
+  String? _email;
+  String? _password;
 
   User(String name, String email, String password){
     this._name = name;
@@ -12,13 +10,13 @@ class User{
   }
 
   String getName(){
-    return _name;
+    return _name!;
   }
   String getEmail(){
-    return _email;
+    return _email!;
   }
   String getPassword(){
-    return _password;
+    return _password!;
   }
 
 }

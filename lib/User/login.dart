@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'User.dart';
 
 class Login extends StatefulWidget {
-  final User user;
+  final User? user;
 
-  const Login({Key key, this.user}) : super(key: key);
+  const Login({Key? key, this.user}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     return LoginState();
@@ -15,14 +15,14 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
-  User user;
+  User? user;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final email = TextEditingController();
   final password = TextEditingController();
 
-  String _email;
-  String _password;
+  String? _email;
+  String? _password;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +39,8 @@ class LoginState extends State<Login> {
               children: <Widget>[
                 TextFormField(
                   decoration: InputDecoration(labelText: 'e-mail'),
-                  validator: (String value) {
-                    if (value.isEmpty) {
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
                       return 'e-mail alanı boş bırakılamaz';
                     }
                     if (!RegExp(
@@ -48,13 +48,13 @@ class LoginState extends State<Login> {
                         .hasMatch(value)) {
                       return 'yanlış bir e-mail girdiniz';
                     }
-                    if (email.text != widget.user.getEmail()) {
+                    if (email.text != widget.user!.getEmail()) {
                       return "boyle bir mail bulunamadı";
                     }
                     return null;
                   },
                   controller: email,
-                  onSaved: (String value) {
+                  onSaved: (String? value) {
                     _email = value;
                   },
                 ),
@@ -62,17 +62,17 @@ class LoginState extends State<Login> {
                   decoration: InputDecoration(labelText: 'şifre'),
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
-                  validator: (String value) {
-                    if (value.isEmpty) {
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
                       return 'bu alan boş bırakılamaz';
                     }
-                    if (password.text != widget.user.getPassword()) {
+                    if (password.text != widget.user!.getPassword()) {
                       return "şifre hatalı";
                     }
                     return null;
                   },
                   controller: password,
-                  onSaved: (String value) {
+                  onSaved: (String? value) {
                     _password = value;
                   },
                 ),
@@ -83,8 +83,8 @@ class LoginState extends State<Login> {
                     style: TextStyle(color: Colors.brown, fontSize: 16),
                   ),
                   onPressed: () {
-                    if (_formKey.currentState.validate()) {
-                      _formKey.currentState.save();
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => MainPage()),

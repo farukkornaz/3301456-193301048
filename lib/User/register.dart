@@ -16,10 +16,10 @@ class RegisterState extends State<Register> {
   final fieldText = TextEditingController();
   final fieldText2 = TextEditingController();
 
-  String _name;
-  String _email;
-  String _password;
-  String confirm;
+  String? _name;
+  String? _email;
+  String? _password;
+  String? confirm;
 
   bool comparePassword(String p1, String p2) {
     int result = p1.compareTo(p2);
@@ -47,20 +47,20 @@ class RegisterState extends State<Register> {
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Kullanıcı Adı'),
                   maxLength: 40,
-                  validator: (String value) {
-                    if (value.isEmpty) {
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
                       return 'bu alan boş bırakılamaz';
                     }
                     return null;
                   },
-                  onSaved: (String value) {
+                  onSaved: (String? value) {
                     _name = value;
                   },
                 ), //isim
                 TextFormField(
                   decoration: InputDecoration(labelText: 'e-mail'),
-                  validator: (String value) {
-                    if (value.isEmpty) {
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
                       return 'e-mail alanı boş bırakılamaz';
                     }
                     if (!RegExp(
@@ -71,7 +71,7 @@ class RegisterState extends State<Register> {
 
                     return null;
                   },
-                  onSaved: (String value) {
+                  onSaved: (String? value) {
                     _email = value;
                   },
                 ), //email
@@ -79,13 +79,13 @@ class RegisterState extends State<Register> {
                   decoration: InputDecoration(labelText: 'şifre'),
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
-                  validator: (String value) {
-                    if (value.isEmpty) {
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
                       return 'bu alan boş bırakılamaz';
                     }
                     return null;
                   },
-                  onSaved: (String value) {
+                  onSaved: (String? value) {
                     _password = value;
                   },
                   controller: fieldText,
@@ -95,15 +95,15 @@ class RegisterState extends State<Register> {
                       InputDecoration(labelText: "şifre'yi tekrar gırınız"),
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
-                  validator: (String value) {
-                    if (value.isEmpty) {
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
                       return 'bu alan boş bırakılamaz';
                     } else if (fieldText2.text != fieldText.text) {
                       return "şifreler eşleşmiyor, lutfen tekrar gırınız";
                     }
                     return null;
                   },
-                  onSaved: (String value) {
+                  onSaved: (String? value) {
                     confirm = value;
                   },
                   controller: fieldText2,
@@ -115,9 +115,9 @@ class RegisterState extends State<Register> {
                     style: TextStyle(color: Colors.brown, fontSize: 16),
                   ),
                   onPressed: () {
-                    if (_formKey.currentState.validate()) {
-                      _formKey.currentState.save();
-                      User u1 = User(_name, _email, _password);
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                      User u1 = User(_name!, _email!, _password!);
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (context) => Login(user: u1,)),

@@ -9,7 +9,7 @@ void main() {
 }
 
 class EntryPage extends StatelessWidget {
-  const EntryPage({Key key}) : super(key: key);
+  const EntryPage({Key? key}) : super(key: key);
 
   static const String _title = 'Büyüteç';
 
@@ -26,7 +26,7 @@ class EntryPage extends StatelessWidget {
 }
 
 class SEntryPage extends StatefulWidget {
-  const SEntryPage({Key key}) : super(key: key);
+  const SEntryPage({Key? key}) : super(key: key);
 
   @override
   _SEntryPageState createState() => _SEntryPageState();

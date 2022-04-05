@@ -8,7 +8,7 @@ import 'UserArticles.dart';
 import 'createArticle.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key key}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -17,9 +17,11 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
+    /*
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
+    */
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.brown,title: Text("buyutec"),),
       drawer: Drawer(
@@ -83,7 +85,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -101,7 +103,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -119,7 +121,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -137,7 +139,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -155,7 +157,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -173,7 +175,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -191,7 +193,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -209,7 +211,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -227,7 +229,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -245,7 +247,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),
@@ -263,7 +265,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 //TODO: Navigation islemleri
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => secondpage()));
+                    MaterialPageRoute(builder: (context) => Secondpage()));
               },
             ),
           ),

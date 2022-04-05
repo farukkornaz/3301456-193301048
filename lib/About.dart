@@ -2,7 +2,7 @@ import 'package:buyutec/Widgets/CUstomElevatedButton.dart';
 import 'package:flutter/material.dart';
 
 class About extends StatelessWidget {
-  const About({Key key}) : super(key: key);
+  const About({Key? key}) : super(key: key);
 
   static const String _title = 'Büyüteç';
 

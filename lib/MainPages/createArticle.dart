@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CreateArticle extends StatefulWidget {
-  const CreateArticle({Key key}) : super(key: key);
+  const CreateArticle({Key? key}) : super(key: key);
 
   @override
   _CreateArticleState createState() => _CreateArticleState();

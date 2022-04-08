@@ -4,9 +4,7 @@ import 'About.dart';
 import 'User/login.dart';
 import 'User/register.dart';
 
-void main() {
-  runApp(EntryPage());
-}
+
 
 class EntryPage extends StatelessWidget {
   const EntryPage({Key? key}) : super(key: key);

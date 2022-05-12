@@ -71,203 +71,181 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           */
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          GestureDetector(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
-          Expanded(
-            child: InkWell(
-              child: Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 72.0),
-                  title: Text('Başlık'),
-                  subtitle: Text(
-                      "İçerik'in bir kısmı burada gozukucek"),
-                  isThreeLine: true,
-                ),
+          InkWell(
+            child: Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 72.0),
+                title: Text('Başlık'),
+                subtitle: Text(
+                    "İçerik'in bir kısmı burada gozukucek"),
+                isThreeLine: true,
               ),
-              onTap: () {
-                //TODO: Navigation islemleri
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Secondpage()));
-              },
             ),
+            onTap: () {
+              //TODO: Navigation islemleri
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Secondpage()));
+            },
           ),
         ],
       ),

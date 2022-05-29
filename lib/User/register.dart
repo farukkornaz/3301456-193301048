@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:buyutec/User/login.dart';
 import 'User.dart';
 
+
 class Register extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -15,6 +16,7 @@ class RegisterState extends State<Register> {
   // parolalar yanlıs ıse text form fieldın ıcerıgını kontrol etmek ve temızlemek ıcın kullanıcam
   final fieldText = TextEditingController();
   final fieldText2 = TextEditingController();
+
 
   String? _name;
   String? _email;
@@ -118,6 +120,7 @@ class RegisterState extends State<Register> {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
                       User u1 = User(_name!, _email!, _password!);
+
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (context) => Login(user: u1,)),

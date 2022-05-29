@@ -5,17 +5,15 @@ import 'User/login.dart';
 import 'User/register.dart';
 
 
-void main() {
-  runApp(EntryPage());
-}
-
 class EntryPage extends StatelessWidget {
-  const EntryPage({Key? key}) : super(key: key);
+  //final Future<FirebaseApp> _initilazition = Firebase.initializeApp();
+  //const EntryPage({Key? key}) : super(key: key);
 
   static const String _title = 'Büyüteç';
 
   @override
   Widget build(BuildContext context) {
+    //CollectionReference users = FirebaseFirestore.instance.collection('test');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,

@@ -60,17 +60,6 @@ class _MainPageState extends State<MainPage> {
       ),
       body: ListView(
         children: [
-          /*
-          Expanded(
-            child: Container(
-              width: width,
-              height: 0.10 * height,
-              child: Row(
-                children: [Text("Row Widget")],
-              ),
-            ),
-          ),
-          */
           GestureDetector(
             child: Card(
               child: ListTile(

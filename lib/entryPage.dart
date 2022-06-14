@@ -6,7 +6,6 @@ import 'User/register.dart';
 
 
 class EntryPage extends StatelessWidget {
-  //final Future<FirebaseApp> _initilazition = Firebase.initializeApp();
   //const EntryPage({Key? key}) : super(key: key);
 
   static const String _title = 'Büyüteç';

@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:buyutec/User/login.dart';
+import '../services/auth.dart';
 import 'User.dart';
 
 
@@ -17,12 +19,24 @@ class RegisterState extends State<Register> {
   final fieldText = TextEditingController();
   final fieldText2 = TextEditingController();
 
+  AuthService _authService = AuthService();
 
   String? _name;
   String? _email;
   String? _password;
   String? confirm;
-
+/*
+  Future registerUser({required String name, required String email, required String password}) async{
+    final docUser = FirebaseFirestore.instance.collection('users').doc();
+    final user={
+      'id': docUser.id,
+      'name': name,
+      'email': email,
+      'password': password,
+    };
+    await docUser.set(user);
+  }
+*/
   bool comparePassword(String p1, String p2) {
     int result = p1.compareTo(p2);
     if (result == 0) {
@@ -121,11 +135,26 @@ class RegisterState extends State<Register> {
                       _formKey.currentState!.save();
                       User u1 = User(_name!, _email!, _password!);
 
+                      _authService
+                          .createPerson(
+                          _name!,
+                          _email!,
+                          _password!)
+                          .then((value) {
+                        return Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Login()));
+                      });
+
+
+                      //registerUser(name: _name!, email: _email!, password: _password!);
+                      /*
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (context) => Login(user: u1,)),
                       );
-                      //TODO:navigator push --> Login
+                      */
                       return;
                     }
                   },
@@ -136,5 +165,6 @@ class RegisterState extends State<Register> {
         ),
       ),
     );
+
   }
 }

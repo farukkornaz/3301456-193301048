@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../services/auth.dart';
 import 'User.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:buyutec/session.dart';
 
 class Login extends StatefulWidget {
   final User? user;
@@ -23,7 +24,6 @@ class LoginState extends State<Login> {
 
   final email = TextEditingController();
   final password = TextEditingController();
-
   AuthService _authService = AuthService();
 
   String? _email;
@@ -115,6 +115,7 @@ class LoginState extends State<Login> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
+                      Session.save(_email!);
 
                       _authService
                           .signIn(

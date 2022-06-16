@@ -7,6 +7,8 @@ import 'Settings.dart';
 import 'UserArticles.dart';
 import 'createArticle.dart';
 
+import 'package:buyutec/session.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -64,7 +66,7 @@ class _MainPageState extends State<MainPage> {
             child: Card(
               child: ListTile(
                 leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
+                title: Text(Session.mail),
                 subtitle: Text(
                     "İçerik'in bir kısmı burada gozukucek"),
                 isThreeLine: true,

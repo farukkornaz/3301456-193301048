@@ -1,13 +1,14 @@
+
 import 'package:buyutec/MainPages/createArticle.dart';
 import 'package:buyutec/MainPages/secondpage.dart';
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart' hide Settings;
+import 'package:flutter_quill/flutter_quill.dart' hide Text;
 import 'Profile.dart';
 import 'Settings.dart';
 import 'UserArticles.dart';
 import 'createArticle.dart';
-
-import 'package:buyutec/session.dart';
+import 'dart:convert';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -17,6 +18,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  var articleSnapShots = FirebaseFirestore.instance.collection('articles');
+  QuillController _controller = QuillController.basic();
   @override
   Widget build(BuildContext context) {
     /*
@@ -25,11 +28,14 @@ class _MainPageState extends State<MainPage> {
     var width = size.width;
     */
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.brown,title: Text("buyutec"),),
+      appBar: AppBar(
+        backgroundColor: Colors.brown,
+        title: Text("buyutec"),
+      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children:  <Widget>[
+          children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.brown,
@@ -45,21 +51,61 @@ class _MainPageState extends State<MainPage> {
             ListTile(
               leading: Icon(Icons.article_outlined),
               title: Text('Yazılarım'),
-              onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>UserArticles())),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => UserArticles())),
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
               title: Text('Profile'),
-              onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile())),
+              onTap: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Profile())),
             ),
             ListTile(
               leading: Icon(Icons.settings),
               title: Text('Settings'),
-              onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings())),
+              onTap: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Settings())),
             ),
           ],
         ),
       ),
+      body: Column(
+        children: [
+          StreamBuilder<QuerySnapshot>(
+            stream: articleSnapShots.snapshots(),
+            builder: (BuildContext context, AsyncSnapshot asyncSnapshot) {
+              List<DocumentSnapshot> articles = asyncSnapshot.data.docs;
+              return Flexible(
+                child: ListView.builder(
+                    itemCount: articles.length,
+                    itemBuilder: (context, index) {
+                      var myJSON = jsonDecode(articles[index]["content"]);
+                      _controller = QuillController(
+                          document: Document.fromJson(myJSON),
+                          selection: TextSelection.collapsed(offset: 0));
+                      return Center(child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: QuillEditor.basic(controller: _controller, readOnly: true),
+
+                          ),
+                          Divider(
+                            height: 20,
+                            thickness: 5,
+                            indent: 20,
+                            endIndent: 0,
+                            color: Colors.deepOrange,
+                          ),
+                        ],
+                      ));
+                      }),
+              );
+            },
+          ),
+        ],
+      ),
+      /*
       body: ListView(
         children: [
           GestureDetector(
@@ -240,8 +286,12 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
+
+       */
+
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateArticle())),
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => CreateArticle())),
         label: Text('Makale oluştur'),
         icon: Icon(Icons.add),
         backgroundColor: Colors.pink,

@@ -11,4 +11,8 @@ class Crud{
 
     await docArticle.set(article);
   }
+
+  Future getArticle({required String mail}) async {
+    final docArticle = FirebaseFirestore.instance.collection('articles').where("mail" == mail);
+  }
 }

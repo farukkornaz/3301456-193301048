@@ -127,7 +127,7 @@ class RegisterState extends State<Register> {
                 SizedBox(height: 100),
                 ElevatedButton(
                   child: Text(
-                    'Submit',
+                    'Kayıt Ol',
                     style: TextStyle(color: Colors.brown, fontSize: 16),
                   ),
                   onPressed: () {

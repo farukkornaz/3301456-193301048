@@ -1,13 +1,13 @@
-
-import 'package:buyutec/MainPages/createArticle.dart';
+import 'package:buyutec/MainPages/CreateArticle/ArticleContent.dart';
 import 'package:buyutec/MainPages/secondpage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart' hide Settings;
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
+import 'CreateArticle/baslik.dart';
 import 'Profile.dart';
 import 'Settings.dart';
 import 'UserArticles.dart';
-import 'createArticle.dart';
+import 'CreateArticle/ArticleContent.dart';
 import 'dart:convert';
 
 class MainPage extends StatefulWidget {
@@ -83,23 +83,64 @@ class _MainPageState extends State<MainPage> {
                       _controller = QuillController(
                           document: Document.fromJson(myJSON),
                           selection: TextSelection.collapsed(offset: 0));
-                      return Center(child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: QuillEditor.basic(controller: _controller, readOnly: true),
+                      QuillController controller2 = _controller;
+                      String baslik = articles[index]["title"];
+                      return GestureDetector(
+                        child: Card(
+                          child: ListTile(
+                            leading: Icon(Icons.article_outlined),
+                            title: Text(articles[index]["title"]),
+                            subtitle:
+                                Text("İçerik'in bir kısmı burada gozukucek"),
+                            isThreeLine: true,
+                          ),
+                        ),
+                        onTap: () {
+                          //TODO: Navigation islemleri
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SecondPage(
+                                        controller: controller2,
+                                        Baslik: Baslik,
+                                      )));
+                        },
+                      );
 
-                          ),
-                          Divider(
-                            height: 20,
-                            thickness: 5,
-                            indent: 20,
-                            endIndent: 0,
-                            color: Colors.deepOrange,
-                          ),
-                        ],
-                      ));
-                      }),
+                      /*return Center(
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.deepOrange,
+                                    offset: Offset(5.0, 5.0),
+                                    blurRadius: 10.0,
+                                    spreadRadius: 2.0,
+                                  ),
+                                  BoxShadow(
+                                      color: Colors.white,
+                                      offset: Offset(0.0, 0.0),
+                                      blurRadius: 0.0,
+                                      spreadRadius: 0.0)
+                                ]),
+                                child: QuillEditor.basic(
+                                    controller: _controller, readOnly: true),
+                              ),
+                            ),
+                            Divider(
+                              height: 20,
+                              thickness: 5,
+                              indent: 20,
+                              endIndent: 0,
+                              color: Colors.deepOrange,
+                            ),
+                          ],
+                        ),
+                      );*/
+                    }),
               );
             },
           ),
@@ -291,7 +332,7 @@ class _MainPageState extends State<MainPage> {
 
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => CreateArticle())),
+            context, MaterialPageRoute(builder: (context) => ArticleContent())),
         label: Text('Makale oluştur'),
         icon: Icon(Icons.add),
         backgroundColor: Colors.pink,

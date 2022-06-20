@@ -53,7 +53,7 @@ class LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(title: Center(child: Text("Griş Yap"))),
+      appBar: AppBar(title: Text("Giriş Yap"),centerTitle: true),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(24),

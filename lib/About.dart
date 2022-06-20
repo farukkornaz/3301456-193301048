@@ -1,4 +1,3 @@
-import 'package:buyutec/Widgets/CUstomElevatedButton.dart';
 import 'package:flutter/material.dart';
 
 class About extends StatelessWidget {

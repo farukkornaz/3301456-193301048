@@ -1,5 +1,5 @@
 import 'package:buyutec/MainPages/CreateArticle/ArticleContent.dart';
-import 'package:buyutec/MainPages/secondpage.dart';
+import 'package:buyutec/MainPages/ShowArticle.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart' hide Settings;
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
@@ -71,43 +71,47 @@ class _MainPageState extends State<MainPage> {
       ),
       body: Column(
         children: [
-          StreamBuilder<QuerySnapshot>(
-            stream: articleSnapShots.snapshots(),
-            builder: (BuildContext context, AsyncSnapshot asyncSnapshot) {
-              List<DocumentSnapshot> articles = asyncSnapshot.data.docs;
-              return Flexible(
-                child: ListView.builder(
-                    itemCount: articles.length,
-                    itemBuilder: (context, index) {
-                      var myJSON = jsonDecode(articles[index]["content"]);
-                      _controller = QuillController(
-                          document: Document.fromJson(myJSON),
-                          selection: TextSelection.collapsed(offset: 0));
-                      QuillController controller2 = _controller;
-                      String baslik = articles[index]["title"];
-                      return GestureDetector(
-                        child: Card(
-                          child: ListTile(
-                            leading: Icon(Icons.article_outlined),
-                            title: Text(articles[index]["title"]),
-                            subtitle:
+          Flexible(
+            child: StreamBuilder<QuerySnapshot>(
+              stream: articleSnapShots.snapshots(),
+              builder: (BuildContext context, AsyncSnapshot asyncSnapshot) {
+                if(asyncSnapshot.hasError){
+                  return Center(child: Text("bir hata olustu"),);
+                }else{
+                  if(asyncSnapshot.hasData){
+                    List<DocumentSnapshot> articles = asyncSnapshot.data.docs;
+                    return ListView.builder(
+                        itemCount: articles.length,
+                        itemBuilder: (context, index) {
+                          var myJSON = jsonDecode(articles[index]["content"]);
+                          _controller = QuillController(
+                              document: Document.fromJson(myJSON),
+                              selection: TextSelection.collapsed(offset: 0));
+                          QuillController controller2 = _controller;
+                          String baslik = articles[index]["title"];
+                          return GestureDetector(
+                            child: Card(
+                              child: ListTile(
+                                leading: Icon(Icons.article_outlined),
+                                title: Text(articles[index]["title"]),
+                                subtitle:
                                 Text("İçerik'in bir kısmı burada gozukucek"),
-                            isThreeLine: true,
-                          ),
-                        ),
-                        onTap: () {
-                          //TODO: Navigation islemleri
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SecondPage(
+                                isThreeLine: true,
+                              ),
+                            ),
+                            onTap: () {
+                              //TODO: Navigation islemleri
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ShowArticle(
                                         controller: controller2,
-                                        Baslik: Baslik,
+                                        Baslik: baslik,
                                       )));
-                        },
-                      );
+                            },
+                          );
 
-                      /*return Center(
+                          /*return Center(
                         child: Column(
                           children: [
                             Padding(
@@ -140,9 +144,13 @@ class _MainPageState extends State<MainPage> {
                           ],
                         ),
                       );*/
-                    }),
-              );
-            },
+                        });
+                  }else{
+                    return Center(child:  CircularProgressIndicator(),);
+                  }
+                }
+              },
+            ),
           ),
         ],
       ),
@@ -181,153 +189,8 @@ class _MainPageState extends State<MainPage> {
                   MaterialPageRoute(builder: (context) => Secondpage()));
             },
           ),
-          InkWell(
-            child: Card(
-              child: ListTile(
-                leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
-                subtitle: Text(
-                    "İçerik'in bir kısmı burada gozukucek"),
-                isThreeLine: true,
-              ),
-            ),
-            onTap: () {
-              //TODO: Navigation islemleri
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Secondpage()));
-            },
-          ),
-          InkWell(
-            child: Card(
-              child: ListTile(
-                leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
-                subtitle: Text(
-                    "İçerik'in bir kısmı burada gozukucek"),
-                isThreeLine: true,
-              ),
-            ),
-            onTap: () {
-              //TODO: Navigation islemleri
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Secondpage()));
-            },
-          ),
-          InkWell(
-            child: Card(
-              child: ListTile(
-                leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
-                subtitle: Text(
-                    "İçerik'in bir kısmı burada gozukucek"),
-                isThreeLine: true,
-              ),
-            ),
-            onTap: () {
-              //TODO: Navigation islemleri
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Secondpage()));
-            },
-          ),
-          InkWell(
-            child: Card(
-              child: ListTile(
-                leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
-                subtitle: Text(
-                    "İçerik'in bir kısmı burada gozukucek"),
-                isThreeLine: true,
-              ),
-            ),
-            onTap: () {
-              //TODO: Navigation islemleri
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Secondpage()));
-            },
-          ),
-          InkWell(
-            child: Card(
-              child: ListTile(
-                leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
-                subtitle: Text(
-                    "İçerik'in bir kısmı burada gozukucek"),
-                isThreeLine: true,
-              ),
-            ),
-            onTap: () {
-              //TODO: Navigation islemleri
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Secondpage()));
-            },
-          ),
-          InkWell(
-            child: Card(
-              child: ListTile(
-                leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
-                subtitle: Text(
-                    "İçerik'in bir kısmı burada gozukucek"),
-                isThreeLine: true,
-              ),
-            ),
-            onTap: () {
-              //TODO: Navigation islemleri
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Secondpage()));
-            },
-          ),
-          InkWell(
-            child: Card(
-              child: ListTile(
-                leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
-                subtitle: Text(
-                    "İçerik'in bir kısmı burada gozukucek"),
-                isThreeLine: true,
-              ),
-            ),
-            onTap: () {
-              //TODO: Navigation islemleri
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Secondpage()));
-            },
-          ),
-          InkWell(
-            child: Card(
-              child: ListTile(
-                leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
-                subtitle: Text(
-                    "İçerik'in bir kısmı burada gozukucek"),
-                isThreeLine: true,
-              ),
-            ),
-            onTap: () {
-              //TODO: Navigation islemleri
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Secondpage()));
-            },
-          ),
-          InkWell(
-            child: Card(
-              child: ListTile(
-                leading: FlutterLogo(size: 72.0),
-                title: Text('Başlık'),
-                subtitle: Text(
-                    "İçerik'in bir kısmı burada gozukucek"),
-                isThreeLine: true,
-              ),
-            ),
-            onTap: () {
-              //TODO: Navigation islemleri
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Secondpage()));
-            },
-          ),
         ],
       ),
-
        */
 
       floatingActionButton: FloatingActionButton.extended(

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
 
-class SecondPage extends StatefulWidget {
+class ShowArticle extends StatefulWidget {
   //final QuillController controller;
   var controller;
   var Baslik;
-  SecondPage({Key? key, this.controller, this.Baslik}) : super(key: key);
+  ShowArticle({Key? key, this.controller, this.Baslik}) : super(key: key);
 
   @override
-  _SecondPageState createState() => _SecondPageState();
+  _ShowArticleState createState() => _ShowArticleState();
 }
 
-class _SecondPageState extends State<SecondPage> {
+class _ShowArticleState extends State<ShowArticle> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

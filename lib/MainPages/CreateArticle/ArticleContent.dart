@@ -32,7 +32,8 @@ class _ArticleContentState extends State<ArticleContent> {
             style: TextStyle(color: Colors.black87),
           ),
           shadowColor: Colors.blueGrey,
-          backgroundColor: Colors.white,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(
             color: Colors.black,
           ),

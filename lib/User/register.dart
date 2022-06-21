@@ -133,7 +133,7 @@ class RegisterState extends State<Register> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      User u1 = User(_name!, _email!, _password!);
+                      //User u1 = User(_name!, _email!, _password!, );
 
                       _authService
                           .createPerson(

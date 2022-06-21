@@ -1,22 +1,17 @@
 class User{
-  String? _name;
-  String? _email;
-  String? _password;
+  final String imagePath;
+  final String name;
+  final String email;
+  final String about;
 
-  User(String name, String email, String password){
+
+  const User({required this.imagePath,required this.name, required this.email, required this.about});
+/*
+  User(String name, String email, String password, Strin){
     this._name = name;
     this._email = email;
     this._password = password;
-  }
+  }*/
 
-  String getName(){
-    return _name!;
-  }
-  String getEmail(){
-    return _email!;
-  }
-  String getPassword(){
-    return _password!;
-  }
 
 }

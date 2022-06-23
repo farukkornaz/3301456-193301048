@@ -9,6 +9,7 @@ import 'Settings.dart';
 import 'UserArticles.dart';
 import 'CreateArticle/ArticleContent.dart';
 import 'dart:convert';
+import 'Edite_Profile.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -195,7 +196,7 @@ class _MainPageState extends State<MainPage> {
 
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ArticleContent())),
+            context, MaterialPageRoute(builder: (context) => EditeProfile())),
         label: Text('Makale oluştur'),
         icon: Icon(Icons.add),
         backgroundColor: Colors.pink,
